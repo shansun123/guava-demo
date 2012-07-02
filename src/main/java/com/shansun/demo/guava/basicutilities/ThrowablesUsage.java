@@ -1,4 +1,4 @@
-package com.shansun.demo.guava;
+package com.shansun.demo.guava.basicutilities;
 
 import java.io.IOException;
 import java.sql.SQLException;
