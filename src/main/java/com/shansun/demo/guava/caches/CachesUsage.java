@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
 
 /**
  * CacheBuilder usage
@@ -14,7 +15,7 @@ import com.google.common.cache.CacheBuilder;
  * @version: 1.0 <br>
  * @date: 2012-6-28
  */
-public class CacheBuilderUsage {
+public class CachesUsage {
 
 	/**
 	 * @param args
@@ -25,8 +26,12 @@ public class CacheBuilderUsage {
 		commonUsage();
 	}
 
-	private static void commonUsage() throws InterruptedException, ExecutionException {
-		Cache<String, Object> cache = CacheBuilder.newBuilder().expireAfterAccess(3, TimeUnit.SECONDS).maximumSize(10).weakKeys().build();
+	static void commonUsage() throws InterruptedException, ExecutionException {
+		Cache<String, Object> cache = CacheBuilder.newBuilder() //
+				.expireAfterAccess(3, TimeUnit.SECONDS) //
+				.maximumSize(10) //
+				.weakKeys() //
+				.build();
 
 		cache.put("init", 12345);
 
@@ -45,5 +50,4 @@ public class CacheBuilderUsage {
 			}
 		}));
 	}
-
 }
